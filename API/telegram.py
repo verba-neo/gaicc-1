@@ -1,8 +1,11 @@
 import requests
 import random
 
-BOT_TOKEN = '7333426597:AAE9ZwENgHMEeWhh6vheuevD_rgLVAiaLzM'
+BOT_TOKEN = '<TOKEN>'
 BASE_URL = f'https://api.telegram.org/bot{BOT_TOKEN}'
+
+NAVER_CLIENT_ID = '<NAVER_CLIENT_ID>'
+NAVER_CLIENT_SECRET = '<NAVER_CLIENT_SECRET>'
 
 # 지금까지 온 메시지 목록 확인
 res = requests.get(BASE_URL + '/getUpdates')
@@ -24,14 +27,22 @@ elif command == '로또':
     import random
     reply = str(random.sample(range(1, 46), 6))
 
-elif command == '더하기':
-    total = 0
-    for arg in args:
-        total += int(arg)
-    reply = total
+elif command == '최저가' or command == '쇼핑':
+    #검색할 상품
+    product = args[0]
+    # Naver API 로 최저가 검색 기능 활용.
+    NAVER_URL = 'https://openapi.naver.com/v1/search/shop.json'
+    h = {
+        'X-Naver-Client-Id': NAVER_CLIENT_ID,
+        'X-Naver-Client-Secret': NAVER_CLIENT_SECRET,
+    }
+    p = {'query': product, 'display': 1, }
 
+    res = requests.get(NAVER_URL, headers=h, params=p)
+    shopping_data = res.json()['items'][0]
+    reply = f'{product} => {shopping_data['lprice']} / {shopping_data['link']}'
 else:
-    reply = '모르는 명령어 입니다.'
+    reply = '몰라유..'
 
 
 # 그대로 메시지 돌려주기
