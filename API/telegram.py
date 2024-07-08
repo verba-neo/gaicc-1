@@ -1,11 +1,11 @@
 import requests
 import random
 
-BOT_TOKEN = '<TOKEN>'
+BOT_TOKEN = '7333426597:AAE9ZwENgHMEeWhh6vheuevD_rgLVAiaLzM'
 BASE_URL = f'https://api.telegram.org/bot{BOT_TOKEN}'
 
-NAVER_CLIENT_ID = '<NAVER_CLIENT_ID>'
-NAVER_CLIENT_SECRET = '<NAVER_CLIENT_SECRET>'
+NAVER_CLIENT_ID = 'L2q5Wm4QyVn5FanCMBsi'
+NAVER_CLIENT_SECRET = 'CK4tH9_vew'
 
 # 지금까지 온 메시지 목록 확인
 res = requests.get(BASE_URL + '/getUpdates')
