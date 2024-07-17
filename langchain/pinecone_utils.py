@@ -3,9 +3,8 @@ import os
 from dotenv import load_dotenv
 from langchain_pinecone import PineconeVectorStore
 from langchain_openai import OpenAIEmbeddings
-load_dotenv()
 
-PINECONE_API_KEY = os.getenv('PINECONE_API_KEY')
+load_dotenv()
 
 
 def create_embeddings(index_name, docs):
