@@ -1,7 +1,6 @@
 # Basic of markdown
 
 
-
 ## 제목 (Heading)
 
 #1개부터 #6개까지 제목의 중요도를 지정할 수 있다.
