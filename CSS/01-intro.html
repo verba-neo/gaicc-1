@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="./intro.css">
+    <style>
+        /* class 가 text-md인 모든 요소들 */
+        .text-md {
+            font-size: 20px;
+        }
+        .text-lg {
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS 적용하기</h1>
+
+    <!-- 1. 마크업에 직접 적용 => X -->
+    <p style="font-size: 25px; color: red;">
+        CSS Inline 적용하기
+    </p>
+    <!-- 2. head 에 넣기 -->
+    <p class="text-md blue">
+        Head 에 style 태그 만들기
+    </p>
+
+    <!-- 3. 파일 분리 -->
+    <p class="text-lg green">
+        별도 파일 만들기
+    </p>
+</body>
+</html>
