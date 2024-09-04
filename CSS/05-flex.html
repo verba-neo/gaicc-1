@@ -1,0 +1,41 @@
+<!-- 05-flex.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    nav {
+      background-color: gray;
+    }
+    .text-lg {
+      font-size: 3rem;
+    }
+
+    .flex-box {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .no-deco {
+      list-style: none;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="flex-box">
+    <div class="text-lg logo">
+      GAICC-1st
+    </div>
+    <ul class="no-deco flex-box" style="justify-content: space-around;">
+      <li>Home</li>
+      <li>Contact</li>
+      <li>Login</li>
+    </ul>
+  </nav>
+</body>
+
+</html>
