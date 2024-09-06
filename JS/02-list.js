@@ -20,3 +20,11 @@ userInput.addEventListener('keypress', function(event) {
     addList()
   }
 })
+
+// reset function
+function resetList() {
+  // 화면에서 다 지우고
+  myList.innerHTML = ''
+  // localStorage 도 초기화
+  localStorage.setItem('todos', '')
+}
