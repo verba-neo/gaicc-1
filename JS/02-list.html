@@ -9,17 +9,17 @@
 <body>
   <h1>My List</h1>
   <div>
-    <input type="text" id="userInput">
-    <button onclick="asdf()">추가</button>
+    <input type="text" id="userInput" autofocus>
+    <button onclick="addList()">추가</button>
   </div>
   <ul id="myList">
-    <li>메뉴 정하기</li>
   </ul>
 
   <script>
-    function asdf() {
-      // input 태그에 작성한 내용을 잡기 (버튼 누르면)
-      const userInput = document.querySelector('#userInput')
+    // input 태그에 작성한 내용을 잡기 (버튼 누르면)
+    const userInput = document.querySelector('#userInput')
+
+    function addList() {
       // <li> 새로 만들고, 위에서 잡은 내용 추가하기
       const liTag = document.createElement('li')
       liTag.innerText = userInput.value
@@ -27,8 +27,15 @@
       const myList = document.querySelector('#myList')
       // 잡은 <ul> 아래에 appendChild로 liTag 추가하기
       myList.appendChild(liTag)
+      // input 입력값 비우기
+      userInput.value = ''
     }
 
+    userInput.addEventListener('keypress', function(event) {
+      if (event.key === 'Enter') {
+        addList()
+      }
+    })
 
   </script>
 </body>
