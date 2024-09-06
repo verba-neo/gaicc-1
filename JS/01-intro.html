@@ -9,14 +9,30 @@
 </head>
 <body>
   <h1>Hello World</h1>
-  <button onclick="changeButton()">Change!</button>
+  <button onclick="changeButton()">Change Text</button>
+  <button onclick="changeColor()">Change Color</button>
+  <div>
+    <button onclick="createPtag()">New paragraph</button>
+  </div>
 
   <script>
+    function createPtag() {
+      // 새로 만든 요소
+      pTag = document.createElement('p')
+      pTag.innerText = 'New <p> by JS'
+      // 추가할 문서 위치
+      div = document.querySelector('div')
+      div.appendChild(pTag)
+    }
+
     function changeButton() {
       userInput = prompt('뭐라도 써봐라')
       document.querySelector('h1').innerText = userInput
     }
 
+    function changeColor() {
+      document.querySelector('h1').style.color = 'red'
+    }
   </script>
 </body>
 </html>
