@@ -13,30 +13,9 @@
     <button onclick="addList()">추가</button>
   </div>
   <ul id="myList">
+
   </ul>
 
-  <script>
-    // input 태그에 작성한 내용을 잡기 (버튼 누르면)
-    const userInput = document.querySelector('#userInput')
-
-    function addList() {
-      // <li> 새로 만들고, 위에서 잡은 내용 추가하기
-      const liTag = document.createElement('li')
-      liTag.innerText = userInput.value
-      // <ul> 태그를 잡고,
-      const myList = document.querySelector('#myList')
-      // 잡은 <ul> 아래에 appendChild로 liTag 추가하기
-      myList.appendChild(liTag)
-      // input 입력값 비우기
-      userInput.value = ''
-    }
-
-    userInput.addEventListener('keypress', function(event) {
-      if (event.key === 'Enter') {
-        addList()
-      }
-    })
-
-  </script>
+  <script src="./02-list.js"></script>
 </body>
 </html>

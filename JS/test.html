@@ -1,0 +1,55 @@
+<!-- 02-list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>My List</h1>
+  <div>
+    <input type="text" id="userInput" autofocus>
+    <button onclick="addList()">추가</button>
+  </div>
+  <ul id="myList">
+  </ul>
+
+  <script>
+    const todos = JSON.parse(localStorage.getItem('todos')) || []
+    // input 태그에 작성한 내용을 잡기 (버튼 누르면)
+    
+    const myList = document.querySelector('#myList')
+
+    for (const todo of todos) {
+      const liTag = document.createElement('li')
+      liTag.innerText = todo
+      myList.appendChild(liTag)
+    }
+    
+    
+    
+    const userInput = document.querySelector('#userInput')
+
+    function addList() {  
+      inputValue = userInput.value
+      const liTag = document.createElement('li')
+      liTag.innerText = inputValue
+      myList.appendChild(liTag)
+      userInput.value = ''
+      
+      todos.push(inputValue)
+      localStorage.setItem('todos', JSON.stringify(todos))
+    }
+
+    userInput.addEventListener('keypress', function(event) {
+      if (event.key === 'Enter') {
+        addList()
+      }
+    })
+
+    
+
+  </script>
+</body>
+</html>
