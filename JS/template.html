@@ -15,7 +15,16 @@
     const resultArea = document.querySelector('#result')
 
     userInput.addEventListener('keyup', function (event) {
-      resultArea.innerText = event.target.value
+      let sentence = event.target.value  // <input> 에 써있는 텍스트
+      const badWords = ['바보', '멍청이', '똥개', '바1보']
+      // 욕설 교체
+      for (const bword of badWords) {
+        if (sentence.includes(bword)) {
+          sentence = sentence.replaceAll(bword, '**')
+        }
+      }
+      // 최종 화면에 렌더링
+      resultArea.innerText = sentence
     })
 
   </script>
