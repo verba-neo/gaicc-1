@@ -18,21 +18,29 @@
   <section id="articleArea">
   </section>
   <nav>
-    <button>다음 글 불러오기</button>
+    <button onclick="loadPost()">다음 글 불러오기</button>
   </nav>
 
   <script>
-    const URL = 'https://jsonplaceholder.typicode.com/posts/2'
+    let num = 1
+
+    async function loadPost() {
+      const URL = `https://jsonplaceholder.typicode.com/posts/${num}`
+      const res = await fetch(URL, {method: 'GET'})
+      const json = await res.json()
+      addArticle(json.title, json.body)
+      num += 1
+    }
+    
     const articleArea = document.querySelector('#articleArea')
 
-    function addArticle() {
+    function addArticle(title, content) {
       const articleTag = document.createElement('article')
-      // class 목록 추가
       articleTag.classList.add('box')
       const h2Tag = document.createElement('h2')
-      h2Tag.innerText = '제목'
+      h2Tag.innerText = title
       const pTag = document.createElement('p')
-      pTag.innerText = '내용'
+      pTag.innerText = content
       articleTag.appendChild(h2Tag)
       articleTag.appendChild(pTag)
       articleArea.appendChild(articleTag)
