@@ -5,16 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    .box {
+      border: 2px solid black;
+      padding: 1rem;
+      margin-bottom: 2rem;
+    }
+  </style>
 </head>
 <body>
   <h1>Infinity Board</h1>
   <section id="articleArea">
-    
-    <article>
-      <h2>제목</h2>
-      <p>내용</p>
-    </article>
-
   </section>
   <nav>
     <button>다음 글 불러오기</button>
@@ -25,15 +26,16 @@
     const articleArea = document.querySelector('#articleArea')
 
     function addArticle() {
-      // article 요소 (element)를 만든다.
-      // h2 요소를 만든다.
-      // h2 요소에 '제목' 이라는 text를 채운다.
-      // p 요소를 만든다.
-      // p 요소에 '내용' 이라는 text를 채운다.
-      // article 요소 자식으로 h2를 추가한다.
-      // article 요소 자식으로 p를 추가한다.
-
-      // 완성된 article 요소를 articleArea에 자식으로 추가한다.
+      const articleTag = document.createElement('article')
+      // class 목록 추가
+      articleTag.classList.add('box')
+      const h2Tag = document.createElement('h2')
+      h2Tag.innerText = '제목'
+      const pTag = document.createElement('p')
+      pTag.innerText = '내용'
+      articleTag.appendChild(h2Tag)
+      articleTag.appendChild(pTag)
+      articleArea.appendChild(articleTag)
     }
   </script>
 </body>
