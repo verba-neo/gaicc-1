@@ -7,8 +7,16 @@
   <title>Document</title>
 </head>
 <body>
+  <input type="text" id="userInput" autofocus>
+  <p id="result"></p>
+
   <script>
-    
+    const userInput = document.querySelector('#userInput')
+    const resultArea = document.querySelector('#result')
+
+    userInput.addEventListener('keyup', function (event) {
+      resultArea.innerText = event.target.value
+    })
 
   </script>
 </body>

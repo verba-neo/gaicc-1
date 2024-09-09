@@ -1,0 +1,44 @@
+<!-- 05-condition-loop.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 비교연산자
+    console.log(1 === 1)
+    console.log(1 !== '1')
+
+    console.log(true && false)
+    console.log(true || false)
+    console.log(!true)
+    // 조건문
+    const username = prompt('사용자 이름 ㄱㄱ')
+    if (username === 'admin' || username === '관리자') {
+      console.log('관리자 입니다.')
+    } else if (username === 'manager') {
+      console.log('매니저 입니다.')
+    } else {
+      console.log('일반 유저입니다.')
+    }
+    // 3항연산자
+    const user = (username === 'admin') ? '관리자님' : '일반유저'
+    console.log(user)
+
+    // 반복
+    const nums = [10, 20, 30, 40, 50]
+    for (const num of nums) {
+      console.log(num)
+    }
+
+    nums.forEach(function (num) {
+      console.log(num)
+    })
+    
+
+  </script>
+</body>
+</html>
