@@ -23,17 +23,17 @@
 
   <script>
     let num = 1
+    const articleArea = document.querySelector('#articleArea')
 
     async function loadPost() {
       const URL = `https://jsonplaceholder.typicode.com/posts/${num}`
+      // AJAX request
       const res = await fetch(URL, {method: 'GET'})
       const json = await res.json()
       addArticle(json.title, json.body)
       num += 1
     }
     
-    const articleArea = document.querySelector('#articleArea')
-
     function addArticle(title, content) {
       const articleTag = document.createElement('article')
       articleTag.classList.add('box')
