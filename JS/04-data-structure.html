@@ -1,0 +1,46 @@
+<!-- 04-data-structure.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Structure</title>
+</head>
+<body>
+  <script>
+    // Array (배열)
+    const nums = [10, 20, 30]
+    nums[0] // 10
+    nums[-1] // undefined
+    nums[0] = 100
+    nums.push(40)
+    // nums = [10, 20, 30]
+    for (const num of nums) {
+      console.log(num)
+    }
+
+    const arr1 = [1, 2, 3]
+    const arr2 = [4, 5, 6]
+    // Spread Operator ...
+    const arr3 = [...arr1, ...arr2] 
+
+    
+    // Object (객체)
+    const student = {
+      name: '김김김',
+      'age': 25,
+      isMarried: false,
+    }
+    student['name']
+    student.name
+    student.age += 1
+    student.account = 10000000000
+    
+    const human = {
+      blood: 'A',
+      MBTI: 'QWER',
+      ...student,
+    }
+  </script>
+</body>
+</html>

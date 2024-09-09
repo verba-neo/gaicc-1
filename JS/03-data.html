@@ -1,0 +1,44 @@
+<!-- 03-data.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 저장 let/const 단어는 최초 만들때만 사용하면 됨.
+    // 1. 변수 (let) vari able => 재할당 할 수 있음
+    let a = 1
+    a = 2
+    a = 3
+    console.log(a)
+    // 2. 상수 (const) constant => 재할당 할 수 없음
+    const b = 10
+    // b = 11
+
+    // 3. Data Type
+    // Number
+    let num1 = 1
+    let num2 = 3.14
+    let num3 = -3
+    let num4 = 1 / 0 
+    let num5 = 100 / 'a'  // NaN => Not a Number => 코드 잘못 썼을 때
+    console.log(num1, num2, num3, num4, num5)
+
+    // String
+    let str1 = 'asdf'
+    let str2 = ''
+    let str3 = `i am ${str1}` // string template
+    
+    // T/F
+    console.log(true)
+    console.log(typeof false)
+    console.log(true && false)  // and
+    console.log(true || false)  // or
+
+
+  </script>
+</body>
+</html>
