@@ -1,0 +1,26 @@
+<!-- JS/07-ajax.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    // 내부에 바깥 요청 코드가 있다! => 그앞에 await 붙인다.
+    async function getData() {
+      const URL = 'https://jsonplaceholder.typicode.com/posts/1'
+      const res = await axios.get(URL)
+      // 글 제목
+      console.log(res['data']['title']) 
+      console.log(res.data.title) 
+    }
+    
+    getData()
+
+
+  </script>
+</body>
+</html>

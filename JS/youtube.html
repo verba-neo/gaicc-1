@@ -1,0 +1,27 @@
+<!-- youtube.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+  const API_KEY = 'AIzaSyBbjA3kVvPR3AG8cyKwRaUmJTIGAtcDQLs'
+  const BASE_URL = 'https://www.googleapis.com/youtube/v3/search'
+  const params = {
+    key: API_KEY,
+    part: 'snippet',
+    q: 'Javascript'
+  }
+  
+  axios.get(BASE_URL, { params: params })
+    .then(res => console.log(res.data.items))
+  
+  
+</script>
+</body>
+</html>
