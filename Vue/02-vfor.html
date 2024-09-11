@@ -1,3 +1,4 @@
+<!-- 02-vfor.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,12 +8,28 @@
 </head>
 <body>
     <div id="app">
-        
+      <ul>
+        <li v-for="student in students">
+          {{ student }}
+        </li>
+      </ul>
     </div>
 </body>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script>
+  const { createApp } = Vue
+  const obj = {
+    data() {
+      return {
+        students: ['민경', '지혜', '나라']
+      }
+    },
+    methods: {},
+  }
+  createApp(obj).mount('#app')
+
+
   
 </script>
 </html>

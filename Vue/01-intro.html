@@ -1,0 +1,49 @@
+<!-- Vue/01-intro.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h1>{{ name }} - ({{ age }})</h1>
+    <p>{{ mbti }}</p>
+    <button @click="changeMBTI">Change MBTI</button>
+
+    <hr>
+
+    <input type="text" v-model="sentence">
+    <p>
+      {{ sentence }}
+    </p>
+
+  </div>
+</body>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+  // Bootstrap => Responsive => 화면 가로폭
+  // Vue/React => Reactive => 데이터 - 화면간의 반응
+  const { createApp } = Vue
+  
+  const obj = {
+    data: function() {
+      return {
+        name: 'Yu Tae Young',
+        age: 100,
+        mbti: 'ASDF',
+        sentence: '',
+      }
+    },
+    methods: {
+      changeMBTI: function () {
+        this.mbti = prompt()
+      }
+    }
+  }
+  
+  createApp(obj).mount('#app')
+</script>
+</html>
