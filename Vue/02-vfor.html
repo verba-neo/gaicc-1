@@ -7,13 +7,23 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="app">
-      <ul>
-        <li v-for="student in students">
-          {{ student }}
-        </li>
-      </ul>
+  <div id="app">
+    <div>
+      <form @submit.prevent="addStudent">
+        <input type="text" required v-model="newStudent.name" placeholder="이름">
+        <input type="number" v-model="newStudent.account" placeholder="잔액">
+        <input type="number" min="20" max="100" v-model="newStudent.age" placeholder="나이">
+        <button>+</button>
+      </form>
+
     </div>
+
+    <div v-for="student in students">
+      <h3>{{ student.name }} - {{ student.age }}</h3>
+      <p>{{ student.account }}</p>
+    </div>
+    
+  </div>
 </body>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -22,10 +32,23 @@
   const obj = {
     data() {
       return {
-        students: ['민경', '지혜', '나라']
+        newStudent: {
+          name: null,
+          account: null,
+          age: null,
+        },
+        students: [
+          {name: '경민', account: 1000000000, age: 25},
+          {name: '호태', account: 80000000, age: 25},
+        ]
       }
     },
-    methods: {},
+    methods: {
+      addStudent() {
+        this.students.push(this.newStudent)
+        this.newStudent = { name: '', account: 0, age: 0, }
+      }
+    },
   }
   createApp(obj).mount('#app')
 
