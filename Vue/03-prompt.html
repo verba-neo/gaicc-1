@@ -1,0 +1,68 @@
+<!-- 03-prompt.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+  <div id="app" class="container">
+    <!-- 채팅 로그 보여주는 곳 -->
+    <section>
+
+      <article v-for="chat in chatHistory">
+        <div class="card">
+          <div class="card-body">
+            {{ chat }}
+          </div>
+        </div>
+      </article>
+
+    </section>
+    <hr>
+    <!-- 프롬프트 입력하는 곳 -->
+    <div class="input-group">
+      <span class="input-group-text">Prompt</span>
+      <textarea v-model="userPrompt" class="form-control" aria-label="Prompt"></textarea>
+      <button @click="onBtnClick">Send</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <!-- axios => 외부에 요청 편하게 보내기 -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <script>
+    const BASE_URL = 'https://jsonplaceholder.typicode.com/posts/'
+
+    const { createApp } = Vue
+    createApp({
+      data() {
+        return {
+          chatHistory: [],
+          userPrompt: '',
+        }
+      },
+      methods: {
+        // async => 함수 안에 axios 라는 말이 있으면 쓴다.
+        async onBtnClick() {
+          // data 에 있는 값들은 this를 붙여야 한다!
+          this.chatHistory.push(this.userPrompt)
+          // URL 로 요청을 보냄. [axios 앞에는 await가 필요하다.]
+          const res = await axios.get(BASE_URL + this.userPrompt)
+          // 받은 응답메시지를 chatHistory 추가함
+          this.chatHistory.push(res.data.body)
+          this.userPrompt = ''
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+
+</html>
