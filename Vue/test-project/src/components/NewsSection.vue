@@ -1,6 +1,6 @@
 <!-- components/NewsSection.vue -->
 <template>
-  <section>
+  <section id="newsSection">
     <header>
       <h1>인공지능이 영향을 미칠 직업들</h1>
     </header>
