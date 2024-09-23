@@ -43,7 +43,7 @@ export default {
     async onBtnClick() {
       // data 에 있는 값들은 this를 붙여야 한다!
       this.chatHistory.push({ isUser: true, message: this.userPrompt })
-      // URL 로 요청을 보냄. [axios 앞에는 await가 필요하다.]
+      // URL 로 요청을 보냄. [axios 앞에는 await가 필요하다
       const res = await axios.get(BASE_URL + this.userPrompt)
       // 받은 응답메시지를 chatHistory 추가함
       this.chatHistory.push({ isUser: false, message: res.data.body })
