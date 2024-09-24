@@ -29,7 +29,7 @@
 </template>
 <script>
 import axios from 'axios'
-const BASE_URL = 'https://jsonplaceholder.typicode.com/posts/'
+const BASE_URL = 'http://127.0.0.1:5000/'
 
 export default {
   data() {
@@ -44,9 +44,9 @@ export default {
       // data 에 있는 값들은 this를 붙여야 한다!
       this.chatHistory.push({ isUser: true, message: this.userPrompt })
       // URL 로 요청을 보냄. [axios 앞에는 await가 필요하다
-      const res = await axios.get(BASE_URL + this.userPrompt)
+      const res = await axios.post(BASE_URL, { message: this.userPrompt })
       // 받은 응답메시지를 chatHistory 추가함
-      this.chatHistory.push({ isUser: false, message: res.data.body })
+      this.chatHistory.push({ isUser: false, message: res.data.llm })
       // 사용자 입력 비우기
       this.userPrompt = ''
     }
