@@ -5,9 +5,9 @@
 </template>
 
 <script>
-import Button from '@/components/Card.vue'
+import Card from '@/components/Card.vue'
 export default {
-    components: { Button, }
+    components: { Card, }
 }
 </script>
 
