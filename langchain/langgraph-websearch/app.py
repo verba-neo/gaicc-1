@@ -8,6 +8,7 @@ CORS(app)
 @app.route('/ask', methods=['POST'])
 def ask():
     question = request.json['message']
+    # utils/graph.py 에서 최종 질문 검색하는 함수
     ans = websearch_rag(question)
     return {'llm': ans}
 
