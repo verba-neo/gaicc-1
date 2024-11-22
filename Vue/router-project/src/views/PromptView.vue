@@ -1,66 +1,32 @@
-<!-- components/UserPrompt.vue -->
 <template>
-    <div id="userPrompt">
-      <!-- 채팅 로그 보여주는 곳 -->
-      <section class="chatbox bg-body-secondary p-3 rounded-2">
-        <!-- v-for 로 반복을 할 때는 => :key="" 이 있어야 한다. -->
-        <article v-for="(chat, idx) in chatHistory" :key="idx"
-          class="mb-3 d-flex" :class="{ 'justify-content-end': chat.isUser }">
-  
-          <div class="card mw-6">
-            <div class="card-body">
-              {{ chat.message }}
+    # Chat Interface
+
+    <div class="flex flex-col h-screen p-4">
+        <div class="flex-1 overflow-y-auto bg-gray-100 p-4 rounded-lg shadow-md">
+            <div class="chat-history">
+                <!-- Chat messages will be dynamically inserted here -->
+                <div class="message mb-2">
+                    <span class="font-bold">User:</span> Hello, how can I help you?
+                </div>
+                <div class="message mb-2">
+                    <span class="font-bold">Bot:</span> I am here to assist you with your queries.
+                </div>
             </div>
-          </div>
-  
-        </article>
-  
-      </section>
-      <hr>
-      <!-- 프롬프트 입력하는 곳 -->
-      <div class="input-group">
-        <span class="input-group-text">Prompt</span>
-        <textarea v-model="userPrompt" class="form-control" aria-label="Prompt" rows="3"></textarea>
-        <button @click="onBtnClick" class="btn btn-primary">
-          <i class="bi bi-check-lg"></i>
-        </button>
-      </div>
+        </div>
+        <div class="flex items-center mt-4">
+            <textarea class="flex-1 p-2 border rounded-lg" rows="2" placeholder="Type your message..."></textarea>
+            <button class="ml-2 p-2 bg-blue-500 text-white rounded-lg">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
     </div>
-  </template>
-  <script>
-//   import axios from 'axios'
-  const BASE_URL = 'http://127.0.0.1:5000/'
-  
-  export default {
-    data() {
-      return {
-        chatHistory: [],
-        userPrompt: '',
-      }
-    },
-    methods: {
-      // async => 함수 안에 axios 라는 말이 있으면 쓴다.
-      async onBtnClick() {
-        // data 에 있는 값들은 this를 붙여야 한다!
-        this.chatHistory.push({ isUser: true, message: this.userPrompt })
-        // URL 로 요청을 보냄. [axios 앞에는 await가 필요하다
-        const res = await axios.post(BASE_URL, { message: this.userPrompt })
-        // 받은 응답메시지를 chatHistory 추가함
-        this.chatHistory.push({ isUser: false, message: res.data.llm })
-        // 사용자 입력 비우기
-        this.userPrompt = ''
-      }
-    }
-  }
-  </script>
-  
-  <style>
-  .chatbox {
-    height: 50vh;
-    overflow: auto;
-  }
-  
-  .mw-6 {
-    max-width: 60%;
-  }
-  </style>
+
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style></style>
